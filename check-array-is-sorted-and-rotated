@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool check(vector<int>& nums) {
+        int n = nums.size(); // Get the size of the array
+        int count = 0;       // Initialize a counter to track the number of breaks
+
+        // Traverse the array
+        for (int i = 0; i < n; i++) {
+            // Compare the current element with the next element (using modulo for circularity)
+            if (nums[i] > nums[(i + 1) % n]) {
+                count++; // Increment the counter if a break is found
+            }
+        }
+
+        // If the number of breaks is more than 1, the array is not sorted and rotated
+        if (count > 1) {
+            return false;
+        }
+        // Otherwise, the array is sorted and rotated
+        return true;
+    }
+};
