@@ -1,0 +1,59 @@
+Theory
+Problem Statement:
+The task is to determine if the given array is sorted and rotated. A sorted and rotated array is an array that can be obtained by rotating a sorted array. For example:
+
+Sorted array: [1, 2, 3, 4, 5]
+After rotation: [4, 5, 1, 2, 3]
+Approach:
+
+Traverse the array to count the number of "inversions" or "breaks" in the sorted order. A break is a point where an element is greater than the next element.
+If the number of breaks is more than 1, the array is not sorted and rotated. If it is 0 or 1, the array satisfies the condition.
+Key Insight:
+
+The modulo operation ((i + 1) % n) ensures that the array is treated as circular, allowing comparisons between the last and first elements.
+Complexity:
+
+Time Complexity: 
+𝑂(𝑛)
+O(n), where 𝑛 is the size of the array, as the array is traversed once.
+Space Complexity: 
+𝑂(1)
+O(1), as no additional space is used apart from variables.
+Edge Cases:
+
+Single-element or empty arrays (always considered sorted and rotated).
+Arrays with all identical elements (considered sorted and rotated).
+
+
+
+Algorithm Explanation
+Input:
+
+Accept a vector nums as input, representing the array.
+Initialization:
+
+Store the size of the array in n.
+Initialize a variable count to 0 to track the number of breaks in the sorted order.
+Traversal:
+
+Loop through the array:
+Compare the current element nums[i] with the next element nums[(i + 1) % n] (using modulo to ensure circular comparison).
+If the current element is greater than the next element, increment the count.
+Condition Check:
+
+After the loop, check if count is greater than 1:
+If true, return false (not sorted and rotated).
+Otherwise, return true (sorted and rotated).
+Key Points
+Modulo Operation: (i + 1) % n allows comparison between the last and the first element, ensuring the array is treated as circular.
+Break Count: The logic relies on detecting "breaks" in sorted order. For a sorted and rotated array, there will be at most one break.
+Efficiency: This solution is efficient, with 
+𝑂(𝑛)
+O(n) time complexity and 
+𝑂(1)
+O(1) space complexity.
+Edge Cases Considered
+Empty Array: No elements to compare; return true by default.
+Single Element: Always sorted and rotated; return true.
+Identical Elements: No breaks in sorted order; return true.
+This implementation is efficient and handles all edge cases effectively.
